@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+:root {
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #5b5b5b;
+  --card: #f6f6f7;
+  --border: #e6e6e8;
+  --accent: #007acc;
+
+  --max: 980px;     /* bigger like MapWise */
+  --radius: 18px;
+}
+
+/* Base */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.65;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 56px 20px 70px; /* larger */
+}
+
+/* Typography (bigger like MapWise) */
+h1 {
+  font-size: clamp(2.6rem, 4.8vw, 3.6rem);
+  line-height: 1.12;
+  margin: 0 0 10px;
+  letter-spacing: -0.3px;
+}
+
+h2 {
+  font-size: 1.55rem;
+  margin: 34px 0 14px;
+  letter-spacing: -0.2px;
+}
+
+p { margin: 0 0 14px; }
+
+.kicker {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.lede {
+  font-size: 1.12rem;
+  color: var(--muted);
+  font-weight: 600;
+  max-width: 70ch;
+  margin-bottom: 16px;
+}
+
+.muted { color: var(--muted); }
+
+/* Sections */
+.section { margin-top: 8px; }
+
+/* Buttons (MapWise-ish) */
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff !important;
+  font-weight: 800;
+  text-decoration: none !important;
+}
+.btn:hover { filter: brightness(0.95); }
+
+.btn.ghost {
+  background: transparent;
+  color: var(--accent) !important;
+}
+
+/* Social row */
+.social-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+/* Cards (MapWise polish, but still simple) */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 18px;
+  margin: 14px 0;
+}
+
+.card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.card-title {
+  font-weight: 800;
+  color: var(--fg);
+  text-decoration: none;
+}
+.card-title:hover { text-decoration: underline; }
+
+.pill {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff;
+}
+
+/* Tags */
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tags li {
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Lists */
+.list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+.list li { margin: 8px 0; }
+
+/* Footer */
+.foot {
+  margin-top: 52px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .wrap { padding: 44px 16px 60px; }
+  .card-top { flex-direction: column; align-items: flex-start; }
+  .lede { font-size: 1.05rem; }
+}
+#skills .card {
+  background: #fafafa;
+  padding: 18px 22px;
+}
+
+#skills p {
+  margin: 0;
+  line-height: 1.35;
+}
