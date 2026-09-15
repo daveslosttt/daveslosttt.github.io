@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Davis Liggett</title>
+<meta name="description" content="Davis Liggett, founder of ElectIndex. Links to ElectIndex, membership, donations, email, and social profiles.">
+<meta name="theme-color" content="#17203a">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Davis Liggett">
+<meta property="og:description" content="Founder of ElectIndex, an independent election forecasting site. Links to everything in one place.">
+<meta property="og:url" content="https://daveslosttt.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23faf9f5'/%3E%3Cellipse cx='16' cy='16' rx='11' ry='6.5' fill='%231d3fa6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap">
+<style>
+  :root {
+    --table: #17203a;
+    --paper: #faf9f5;
+    --ink: #000;
+    --ink-soft: #5b5b55;
+    --rule: #d8d7cf;
+    --pen: #1d3fa6;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { background: var(--table); }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: 32px 16px;
+    font-family: "Public Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .ballot {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    padding: 28px 36px;
+    background: var(--paper);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .5), 0 18px 40px -12px rgba(0, 0, 0, .55);
+  }
+
+  /* Timing marks along both edges, as on an optical-scan ballot */
+  .ballot::before,
+  .ballot::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    width: 8px;
+    background: repeating-linear-gradient(to bottom, var(--ink) 0 4px, transparent 4px 18px);
+  }
+  .ballot::before { left: 12px; }
+  .ballot::after { right: 12px; }
+
+  .ballot-head {
+    padding: 18px 18px 16px;
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .place {
+    margin: 6px 0 0;
+    font-size: 13px;
+    opacity: .78;
+  }
+
+  .bio {
+    margin: 18px 0 0;
+    font-size: 15px;
+    max-width: 38ch;
+  }
+
+  .instruction {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 10px 0 18px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  .contest {
+    margin-top: 14px;
+    border: 2px solid var(--ink);
+  }
+
+  .contest h2 {
+    margin: 0;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .contest ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contest li + li { border-top: 1px solid var(--rule); }
+
+  .choice {
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    align-items: center;
+    padding: 11px 14px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .oval {
+    flex: none;
+    grid-row: 1 / span 2;
+    width: 26px;
+    height: 15px;
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+    background: transparent;
+    transition: background-color .12s ease, border-color .12s ease;
+  }
+
+  .oval.filled {
+    background: var(--pen);
+    border-color: var(--pen);
+  }
+
+  .name {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .detail {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .choice:hover .oval,
+  .choice:active .oval,
+  .choice:focus-visible .oval {
+    background: var(--pen);
+    border-color: var(--pen);
+  }
+
+  .choice:focus-visible {
+    outline: 2px solid var(--pen);
+    outline-offset: -2px;
+  }
+
+  .end {
+    margin: 22px 0 0;
+    padding-top: 10px;
+    border-top: 2px solid var(--ink);
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 400px) {
+    .ballot { padding: 22px 28px; }
+    .ballot::before,
+    .ballot::after { width: 7px; }
+    .ballot::before { left: 9px; }
+    .ballot::after { right: 9px; }
+    h1 { font-size: 27px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .oval { transition: none; }
+  }
+
+  @media print {
+    html { background: none; }
+    body { padding: 0; }
+    .ballot { max-width: none; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<main class="ballot">
+  <header class="ballot-head">
+    <h1>Davis Liggett</h1>
+    <p class="place">Atlanta, Georgia</p>
+  </header>
+
+  <p class="bio">Founder of ElectIndex, an independent election forecasting site.</p>
+  <p class="instruction"><span class="oval filled" aria-hidden="true"></span>Fill in the oval next to your choice.</p>
+
+  <section class="contest" aria-labelledby="contest-electindex">
+    <h2 id="contest-electindex">ElectIndex</h2>
+    <ul>
+      <li><a class="choice" href="https://electindex.com"><span class="oval" aria-hidden="true"></span><span class="name">ElectIndex</span><span class="detail">Forecasts, maps, and election data</span></a></li>
+      <li><a class="choice" href="https://electindex.com/join"><span class="oval" aria-hidden="true"></span><span class="name">Join ElectIndex</span><span class="detail">Become a member</span></a></li>
+      <li><a class="choice" href="https://electindex.com/donate"><span class="oval" aria-hidden="true"></span><span class="name">Donate</span><span class="detail">Support the project</span></a></li>
+      <li><a class="choice" href="mailto:contact@electindex.com"><span class="oval" aria-hidden="true"></span><span class="name">Email</span><span class="detail">contact@electindex.com</span></a></li>
+    </ul>
+  </section>
+
+  <section class="contest" aria-labelledby="contest-social">
+    <h2 id="contest-social">Find me on</h2>
+    <ul>
+      <li><a class="choice" rel="me" href="https://x.com/davisliggett"><span class="oval" aria-hidden="true"></span><span class="name">X</span><span class="detail">@davisliggett</span></a></li>
+      <li><a class="choice" rel="me" href="https://instagram.com/davisliggett"><span class="oval" aria-hidden="true"></span><span class="name">Instagram</span><span class="detail">@davisliggett</span></a></li>
+      <li><a class="choice" rel="me" href="https://github.com/daveslosttt"><span class="oval" aria-hidden="true"></span><span class="name">GitHub</span><span class="detail">@daveslosttt</span></a></li>
+      <li><a class="choice" rel="me" href="https://tiktok.com/@davisliggett"><span class="oval" aria-hidden="true"></span><span class="name">TikTok</span><span class="detail">@davisliggett</span></a></li>
+      <li><a class="choice" rel="me" href="https://linkedin.com/in/davisliggett/"><span class="oval" aria-hidden="true"></span><span class="name">LinkedIn</span><span class="detail">in/davisliggett</span></a></li>
+    </ul>
+  </section>
+
+  <p class="end">End of ballot</p>
+</main>
+</body>
+</html>
